@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="kopi senja menyediakan,kopi yang berkualitas">
+    <title>kopi senja_kartika</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* ==============================
+   Pengaturan Dasar
+============================== */
+
+:root {
+    --dark-brown: #3b2417;
+    --brown: #6f4e37;
+    --light-brown: #a67c52;
+    --cream: #f8f1e7;
+    --soft-cream: #fffaf3;
+    --white: #ffffff;
+    --black: #1e1e1e;
+    --gray: #6b6b6b;
+    --border: #e7d8c9;
+    --shadow: 0 12px 30px rgba(59, 36, 23, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--black);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin-inline: auto;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+.section-label {
+    margin-bottom: 10px;
+    color: var(--light-brown);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-heading {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-heading h2,
+.about-content h2,
+.contact-content h2 {
+    margin-bottom: 16px;
+    color: var(--dark-brown);
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.2;
+}
+
+.section-heading p,
+.about-content p,
+.contact-content p {
+    color: var(--gray);
+}
+
+/* ==============================
+   Tombol
+============================== */
+
+.btn,
+.hero-content a,
+.about-content a,
+.product-footer a {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 2px solid var(--brown);
+    border-radius: 8px;
+    color: var(--white);
+    background-color: var(--brown);
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover,
+.hero-content a:hover,
+.about-content a:hover,
+.product-footer a:hover {
+    color: var(--white);
+    background-color: var(--dark-brown);
+    border-color: var(--dark-brown);
+    box-shadow: 0 10px 22px rgba(59, 36, 23, 0.22);
+    transform: translateY(-3px);
+}
+
+.about-content a {
+    margin-top: 10px;
+}
+
+.product-footer a {
+    padding: 10px 24px;
+    font-size: 14px;
+}
+
+/* ==============================
+   Navbar
+============================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(111, 78, 55, 0.1);
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    color: var(--dark-brown);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-menu a {
+    position: relative;
+    color: var(--dark-brown);
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    margin: auto;
+    content: "";
+    background-color: var(--light-brown);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--light-brown);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* ==============================
+   Hero Section
+============================== */
+
+.hero {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    padding: 70px 0;
+    background: linear-gradient(90deg, rgba(248, 241, 231, 0.97), rgba(255, 250, 243, 0.92));
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.hero-label {
+    margin-bottom: 14px;
+    color: var(--light-brown);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    max-width: 600px;
+    margin-bottom: 22px;
+    color: var(--dark-brown);
+    font-size: clamp(36px, 6vw, 68px);
+    line-height: 1.08;
+}
+
+.hero-description {
+    max-width: 580px;
+    margin-bottom: 30px;
+    color: var(--gray);
+    font-size: 17px;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image::before {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--light-brown);
+    border-radius: 28px;
+    content: "";
+}
+
+.hero-image img {
+    height: 520px;
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+}
+
+/* ==============================
+   About Section
+============================== */
+
+.about {
+    background-color: var(--white);
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.about-image img {
+    height: 500px;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+}
+
+.about-content p {
+    margin-bottom: 14px;
+}
+
+/* ==============================
+   Products Section
+============================== */
+
+.products {
+    background-color: var(--cream);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.product-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background-color: var(--white);
+    box-shadow: 0 8px 22px rgba(59, 36, 23, 0.08);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-10px);
+}
+
+.product-image {
+    overflow: hidden;
+}
+
+.product-image img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.07);
+}
+
+.product-content {
+    padding: 24px;
+}
+
+.product-content h3 {
+    margin-bottom: 10px;
+    color: var(--dark-brown);
+    font-size: 22px;
+}
+
+.product-content p {
+    min-height: 52px;
+    margin-bottom: 22px;
+    color: var(--gray);
+    font-size: 15px;
+}
+
+.product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* ==============================
+   Contact Section
+============================== */
+
+.contact {
+    background-color: var(--soft-cream);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: start;
+    gap: 55px;
+}
+
+.contact-content {
+    position: sticky;
+    top: 110px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.contact-card {
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    border-color: var(--light-brown);
+    box-shadow: var(--shadow);
+    transform: translateY(-6px);
+}
+
+.contact-card h3 {
+    margin-bottom: 8px;
+    color: var(--dark-brown);
+    font-size: 18px;
+}
+
+.contact-card p,
+.contact-card a {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.contact-card a:hover {
+    color: var(--brown);
+}
+
+/* ==============================
+   Footer
+============================== */
+
+.footer {
+    padding: 28px 0;
+    color: var(--white);
+    background-color: var(--dark-brown);
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.footer-container a {
+    color: var(--white);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+}
+
+/* ==============================
+   Responsive Design
+============================== */
+
+/* Tablet */
+@media screen and (max-width: 992px) {
+    .hero-container,
+    .about-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 50px 0;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-description {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .hero-image {
+        max-width: 550px;
+        margin: 20px auto 0;
+    }
+
+    .hero-image img {
+        height: 400px;
+    }
+
+    .about-image {
+        max-width: 550px;
+        margin-inline: auto;
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .contact-content {
+        position: static;
+        text-align: center;
+    }
+
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Large */
+@media screen and (max-width: 768px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 16px 0;
+        gap: 16px;
+    }
+
+    .nav-menu {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+        font-size: 14px;
+    }
+
+    .hero-container {
+        gap: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-image::before {
+        display: none;
+    }
+
+    .hero-image img {
+        height: 320px;
+    }
+
+    .about-container {
+        gap: 40px;
+    }
+
+    .about-image img {
+        height: 320px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .product-image img {
+        height: 200px;
+    }
+
+    .product-content {
+        padding: 18px;
+    }
+
+    .product-content h3 {
+        font-size: 19px;
+    }
+
+    .product-content p {
+        min-height: auto;
+        font-size: 14px;
+    }
+
+    .contact-grid {
+        gap: 16px;
+    }
+
+    .contact-card {
+        padding: 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+/* Mobile Small */
+@media screen and (max-width: 576px) {
+    .section {
+        padding: 45px 0;
+    }
+
+    .navbar {
+        gap: 12px;
+        padding: 12px 0;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-menu {
+        gap: 14px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 35px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-content a,
+    .about-content a {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    .hero-image img {
+        height: 260px;
+    }
+
+    .about-image img {
+        height: 260px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-inline: auto;
+    }
+
+    .product-image img {
+        height: 220px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-inline: auto;
+    }
+
+    .contact-card {
+        text-align: center;
+    }
+
+    .product-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .product-footer a {
+        text-align: center;
+    }
+
+    .footer-container {
+        gap: 10px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+}
+
+/* Very Small Devices */
+@media screen and (max-width: 380px) {
+    .container {
+        width: 95%;
+    }
+
+    .hero-content h1 {
+        font-size: 26px;
+    }
+
+    .hero-image img,
+    .about-image img {
+        height: 220px;
+    }
+
+    .section-heading h2 {
+        font-size: 24px;
+    }
+
+    .product-content {
+        padding: 14px;
+    }
+
+    .contact-card {
+        padding: 16px;
+    }
+}
+</style>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#beranda" class="logo">kopi senja</a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#beranda">Beranda</a>
+                </li>
+                <li>
+                    <a href="#tentang">Tentang</a>
+                </li>
+                <li>
+                    <a href="#produk">Produk</a>
+                </li>
+                <li>
+                    <a href="#kontak">Kontak</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="beranda">
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <p class="hero-label">Selamat Datang di kopi senja</p>
+                    <h1>Nikmati kopi setiap hari dengan baik</h1>
+                    <p class="hero-description">Kopi senja menyajikan kopi pilihan dengan rasa autentik,aroma khas,dan
+                        suasana nyaman untuk menemani setiap cerita anda.</p>
+                    <a href="https://wa.me/6283830540550">Pesan sekarang</a>
+                </div>
+
+                <div class="hero-image">
+                    <img src="image/cappuccino ☕.jpg" alt="secangkir kopi di kopi senja">
+                </div>
+            </div>
+        </section>
+
+        <section class="about section" id="tentang">
+            <div class="about-container container">
+                <div class="about-image">
+                    <img src="image/Cafe.jpg" alt="Suasana nyaman di kedai kopi senja">
+                </div>
+                <div class="about-content">
+                    <p>Tentang kami</p>
+                    <h2>Tempat nyaman untuk menikmati kopi</h2>
+                    <p>kopi senja merupakan coffe shop sederhana yang menghadirkan minuman kopi berkualitas dari biji
+                        kopi pilihan. Setiap minuman dibuat dengan teliti untuk menghasilkan rasa yang nikmat dan
+                        konsisten.</p>
+                    <p>Kami menyediakan tempat yang tenang dan nyaman untuk bekerja, belajar, bertemu teman, maupun
+                        menikmati waktu santai bersama keluarga.</p>
+                    <a href="#Produk">Lihat produk</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="products section" id="produk">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">
+                        Menu pilihan
+                    </p>
+                    <h2>Produk kopi kami</h2>
+                    <p>Pilih minuman kopi favorit anda dengan rasa yang khas dengan harga terjangkau.</p>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="image/Torabika Cappuccino 1 Renteng - Kopi Capucino - Minuman Kopi Kekinian.jpg"
+                                alt="kopi torabika">
+                        </div>
+                        <div class="product-content">
+                            <h3>Kopi torabika</h3>
+                            <p>Kopi torabika dengan susu yang lembut dan creamy.</p>
+                            <div class="product-footer">
+                                <a href="#">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="image/ABC Kopi Susu 200 ml - Kenikmatan Kopi dan Susu dalam Setiap Tetes.jpg"
+                                alt="kopi ABC">
+                        </div>
+                        <div class="product-content">
+                            <h3>kopi ABC</h3>
+                            <p>kopi ABC dengan susu yang lembut dan creamy.</p>
+                            <div class="product-footer">
+                                <a href="#">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="image/Nilufar Yasmin (@Nilufar06318060) _ Twitter.jpg" alt="kopi Good Day">
+                        </div>
+                        <div class="product-content">
+                            <h3>Kopi Good Day</h3>
+                            <p>cappucino perpaduan ekspreso, susu, dan busa yang lembut</p>
+                            <div class="product-footer">
+                                <a href="#">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact section" id="kontak">
+            <div class="contact-container container">
+                <div class="contact-content">
+                    <p class="section-label">
+                        Hubungi kami
+                    </p>
+                    <h2>Kunjungi Kopi Senja</h2>
+                    <p>Datang dan nikmati kopi pilihan dalam suasana yang nyaman dan hangat</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Alamat Kopi senja</h3>
+                        <p>JL.Alternatif Sentul No.38, Kab.Bogor</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>WhatsApp</h3>
+                        <p>
+                            <a href="http://wa.me/6283830540550">0838 3054 0550</a>
+                        </p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p>
+                            <a href="mailto:cs@kopisenja.com">cs@kopisenja.com</a>
+                        </p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Jam operasional</h3>
+                        <p>Buka setiap hari, 08.00 s.d 22.00 WIB</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <a href="#beranda">Kopi Senja</a>
+            <p>
+                &copy;2026 Kopi senja.Seluruh hak cipya dilindungi UU ITE.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
